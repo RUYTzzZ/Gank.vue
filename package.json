@@ -4,7 +4,6 @@
   "description": "test",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.config.js",
     "dev": "node ./build/dev-server.js",
     "prod": "webpack --config ./build/prod-config.js --progress --hide-modules"
   },
