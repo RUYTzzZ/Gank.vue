@@ -9,6 +9,7 @@ const baseConfig = require('./base-config');
 const environment = require('./env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyjsPlugin = require('uglifyjs-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const root = path.resolve(__dirname, '../');
@@ -35,6 +36,15 @@ const webpackConfig = merge(environment.wrap(baseConfig, 'production'), {
                 collapseWhitespace: true,
                 removeAttributeQuotes: false,
             },
+        }),
+        new UglifyjsPlugin({
+            uglifyOptions: {
+                compress: {
+                    warnings: false,
+                },
+            },
+            sourceMap: true,
+            parallel: true,
         }),
     ],
 });
