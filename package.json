@@ -28,6 +28,8 @@
     "style-loader": "^0.23.0",
     "uglifyjs-webpack-plugin": "1.2.7",
     "url-loader": "^1.1.1",
+    "vue-loader": "15.2.6",
+    "vue-template-compiler": "2.5.10",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-middleware": "^3.4.0",
@@ -36,6 +38,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "vue": "2.5.10"
   }
 }
