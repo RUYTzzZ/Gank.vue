@@ -4,16 +4,13 @@
 
 <template>
     <div id="app">
-        {{name}}
+        <router-view/>
     </div>
 </template>
 
 <script>
 export default {
     name: 'App',
-    data: () => ({
-        name: 'hello world',
-    }),
     mounted() {
     },
 }
