@@ -31,14 +31,12 @@ export default {
           page:1
         }).then((res)=>{
           console.log(res);
-          this.indexPic = res.data.results;
         });
   }
   },
   mounted: function() {
     this.getlist();
     Service.getTodayData().then(res => {
-      console.log(res);
     })
   },
   

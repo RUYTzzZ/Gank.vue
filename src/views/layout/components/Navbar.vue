@@ -9,7 +9,7 @@
         <el-menu-item index="/IOS">IOS</el-menu-item>
         <el-menu-item index="/Android">安卓</el-menu-item>
         <el-menu-item index="/FE">前端</el-menu-item>
-        <el-menu-item index="/MeiZi">妹子圖</el-menu-item>  
+        <el-menu-item index="/MeiZi">图图</el-menu-item>  
         <el-menu-item index="/About">关于宝宝</el-menu-item>
     </el-menu>
   </el-row>
