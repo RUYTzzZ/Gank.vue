@@ -25,6 +25,16 @@ module.exports = {
             },
         });
 
+        /** vue rule */
+        const VueLoaderPlugin = require('vue-loader/lib/plugin');
+        config.plugins.push(/** make sure to include this plugin */new VueLoaderPlugin());
+        config.plugins.push(new webpack.NamedModulesPlugin());
+
+        rules.push({
+            test: /\.vue$/,
+            loader: 'vue-loader',
+        });
+
         /** css rule */
         rules.push({
             test: /\.css$/,

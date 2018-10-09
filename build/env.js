@@ -25,6 +25,7 @@ module.exports = {
             }),  
             new HtmlWebpackPlugin({
                 filename : 'index.html',
+                template : `${config.context}/src/index.html`,
             }),
         ]);
         if (!isProd) {
