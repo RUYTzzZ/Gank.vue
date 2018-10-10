@@ -41,6 +41,7 @@ export default {
 .navbar { 
   border-radius: 0px !important;
   padding-right: 20px;
+  background: #f4f5f5;
 }
 </style>
 

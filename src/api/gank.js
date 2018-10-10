@@ -51,3 +51,10 @@ export const getGankData = (type,size, page) => {
         method: 'get'
     });
 }
+
+export const getBingPic = () => {
+    return request({
+       method:'get',
+       url: 'https://api.yingjoy.cn/pic/?t=random&w=1920',
+    });
+}

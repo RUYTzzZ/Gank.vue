@@ -1,55 +1,77 @@
 <template>
-  <div class="gank-page-container">
-     <el-carousel :interval="1000" type='card' height="400px">
-      <el-carousel-item v-for="item in indexPic" :key="item.id">
-        <img :src="item.url" :alt="item.who" />
-      </el-carousel-item>
-    </el-carousel>
+  <div class="gank-home-page-container">
+    <div class="j-gank-home-pic">
+     <img src="https://api.yingjoy.cn/pic/?t=random&w=1920" alt="Bing每日图片超高清" />
+    </div>
+    <div class="j-gank-home-content">
+      <el-row :gutter="20">
+        <el-col :span="8">
+          <today-card :data="todayData.ios" subject="iOS"></today-card>
+        </el-col>
+        <el-col :span="8" >
+           <today-card :data="todayData.android" subject="安卓"></today-card>
+        </el-col>
+        <el-col :span="8">
+            <today-card :data="todayData.random" subject="瞎推荐"></today-card>
+        </el-col>
+      </el-row>
+      
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
 import Service from '@/util/service.js';
+import TodayCard from '@/components/todayCard/index';
 
 export default {
   name: 'home',
   components: {
-    HelloWorld,
+    TodayCard,
   },
   data() {
     return {
       indexPic:[],
+      todayData:{},
     }
   },
   methods: {
-   getlist: function() {
-        Service.getGankData({
-          type:'福利',
-          size:10,
-          page:1
-        }).then((res)=>{
-          console.log(res);
-          this.indexPic = res.data.results;
-        });
-  }
+    initHome() {
+      Service.getTodayData().then(res => {
+        this.todayData = {
+          android: res.data.results.Android,
+          ios: res.data.results.iOS,
+          random: res.data.results.瞎推荐,
+        };
+      });
+    },
   },
   mounted: function() {
-    this.getlist();
-    Service.getTodayData().then(res => {
-    })
+    this.initHome();
   },
   
 };
 </script>
-<style lang="less">
-  .gank-page-container {
-   width: 100%;
+<style lang="less" scoped>
+  .gank-home-page-container {
+   width: 70%;
    height: 100%;
-   img{
+   margin: 0 auto;
+   background: #fff;
+   .j-gank-home-pic {
      width: 100%;
+     height:500px;
+     margin: 0 auto;
+     img{
+      width:100%;
+      height: 100%;
+      }
    }
+   .j-gank-home-content {
+     padding: 5px
+   }
+   
   }
 </style>
 

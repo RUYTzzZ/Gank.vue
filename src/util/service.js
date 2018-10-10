@@ -24,5 +24,11 @@ export default {
     //获取干活集中营数据
     getGankData: params => request.get('/data/' + params.type + '/' + params.size + '/' + params.page),
 
+    getBingPic: () => {
+        return request({
+           method:'get',
+           url: 'https://api.yingjoy.cn/pic/?t=random&w=1920',
+        });
+    }
 
 }
