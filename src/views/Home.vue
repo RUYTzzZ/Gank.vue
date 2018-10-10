@@ -10,8 +10,8 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '../components/HelloWorld.vue';
-import Service from '../util/service.js';
+import HelloWorld from '@/components/HelloWorld.vue';
+import Service from '@/util/service.js';
 
 export default {
   name: 'home',
@@ -31,6 +31,7 @@ export default {
           page:1
         }).then((res)=>{
           console.log(res);
+          this.indexPic = res.data.results;
         });
   }
   },
