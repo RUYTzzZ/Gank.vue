@@ -12,7 +12,29 @@
            <today-card :data="todayData.android" subject="安卓"></today-card>
         </el-col>
         <el-col :span="8">
-            <today-card :data="todayData.random" subject="瞎推荐"></today-card>
+          <div class="j-gank-meizi">
+              <el-card :body-style="{ padding: '0px' }">
+                <img :src="fuliPic.url" class="image">
+                  <div style="padding: 14px;">
+                    <span v-text="fuliPic.desc"></span>
+                    <div class="bottom clearfix">
+                      <time class="time">{{ fuliPic.publishedAt }}</time>
+                      <el-button type="text" class="button">保存哟</el-button>
+                    </div>
+                  </div>
+              </el-card>
+          </div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="8">
+          <today-card :data="todayData.app" subject="app"></today-card>
+        </el-col>
+        <el-col :span="8" >
+          <today-card :data="todayData.random" subject="瞎推荐"></today-card>
+        </el-col>
+        <el-col :span="8">
+            <today-card :data="todayData.video" subject="休息视频"></today-card>
         </el-col>
       </el-row>
       
@@ -34,16 +56,21 @@ export default {
     return {
       indexPic:[],
       todayData:{},
+      fuliPic: {},
     }
   },
   methods: {
     initHome() {
       Service.getTodayData().then(res => {
+        console.log(res);
         this.todayData = {
           android: res.data.results.Android,
           ios: res.data.results.iOS,
           random: res.data.results.瞎推荐,
+          app: res.data.results.App,
+          video: res.data.results.休息视频,
         };
+        this.fuliPic = res.data.results.福利 !== void 0 && res.data.results.福利.length > 0 ? res.data.results.福利[0] : {};
       });
     },
   },
@@ -58,10 +85,9 @@ export default {
    width: 70%;
    height: 100%;
    margin: 0 auto;
-   background: #fff;
    .j-gank-home-pic {
      width: 100%;
-     height:500px;
+     height:550px;
      margin: 0 auto;
      img{
       width:100%;
@@ -69,7 +95,29 @@ export default {
       }
    }
    .j-gank-home-content {
-     padding: 5px
+     padding: 20px 0;
+     .el-row {
+       margin-bottom: 20px;
+     }
+     .j-gank-meizi {
+       height: 600px;
+       img {
+         height: 100%;
+         width: 100%;
+        }
+        .bottom {
+          .button {
+            float: right;
+          }
+          .time {
+
+          }
+        }
+        .clearfix:before,
+        .clearfix:after {
+            clear: both
+        }
+     }
    }
    
   }
