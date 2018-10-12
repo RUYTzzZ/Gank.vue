@@ -11,7 +11,7 @@ import Girls from './views/girls/index';
 /** use plugin */
 Vue.use(VueRouter);
 
-const routes = [
+export const routeTables = [
     { 
         path: '/',
         component: Layout,
@@ -24,6 +24,8 @@ const routes = [
 },
 ];
 
-export default new VueRouter({
-routes // (缩写) 相当于 routes: routes
-})
+export const generateRouter = () => {
+    return new VueRouter({
+        routes: routeTables, // (缩写) 相当于 routes: routes
+    });
+} 

@@ -6,7 +6,9 @@ import Vue from 'vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from 'app';
-import router from 'route';
+import {generateRouter, routeTables} from 'route';
+
+const router = generateRouter();
 
 router.beforeEach((to, from, next) => {
   /** go to valid module */
