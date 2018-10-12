@@ -18,12 +18,6 @@ export default {
     //获取福利妹子
     getMeiziData: params => request.get('/data/福利/' + params.size + '/' + params.page),
 
-    //获取拓展资源
-    getMeiziData: params => request.get('/data/拓展资源/' + params.size + '/' + params.page),
-
-    // 获取休息视频
-    getMeiziData: params => request.get('/data/休息视频/' + params.size + '/' + params.page),
-
     //获取干活集中营数据
     getGankData: params => request.get('/data/' + params.type + '/' + params.size + '/' + params.page),
 
