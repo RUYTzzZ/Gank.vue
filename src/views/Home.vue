@@ -37,8 +37,12 @@
             <today-card :data="todayData.video" subject="休息视频"></today-card>
         </el-col>
       </el-row>
-      
     </div>
+    <footer class="j-gank-footer">
+      <div class="container">
+
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -64,13 +68,13 @@ export default {
       Service.getTodayData().then(res => {
         console.log(res);
         this.todayData = {
-          android: res.data.results.Android,
-          ios: res.data.results.iOS,
-          random: res.data.results.瞎推荐,
-          app: res.data.results.App,
-          video: res.data.results.休息视频,
+          android: res.results.Android,
+          ios: res.results.iOS,
+          random: res.results.瞎推荐,
+          app: res.results.App,
+          video: res.results.休息视频,
         };
-        this.fuliPic = res.data.results.福利 !== void 0 && res.data.results.福利.length > 0 ? res.data.results.福利[0] : {};
+        this.fuliPic = res.results.福利 !== void 0 && res.results.福利.length > 0 ? res.results.福利[0] : {};
       });
     },
   },
@@ -82,9 +86,7 @@ export default {
 </script>
 <style lang="less" scoped>
   .gank-home-page-container {
-   width: 70%;
    height: 100%;
-   margin: 0 auto;
    .j-gank-home-pic {
      width: 100%;
      height:550px;
@@ -118,6 +120,13 @@ export default {
             clear: both
         }
      }
+   }
+   .j-gank-footer {
+     background-color: #f7fbfd;
+     width: 100%;
+     padding: 40px 150px;
+     box-sizing: border-box;
+     height: 60px;
    }
    
   }

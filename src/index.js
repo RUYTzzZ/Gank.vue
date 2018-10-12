@@ -10,7 +10,7 @@ import router from 'route';
 
 router.beforeEach((to, from, next) => {
   /** go to valid module */
-  const entry = /^\/(.*?)/.exec(to.path);
+  const entry = /^\/(.*?)\//.exec(to.path);
   if (!entry) {
       /** replace to the first module */
       next({path: `/Home/`, replace: true});
