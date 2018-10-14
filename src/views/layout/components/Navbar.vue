@@ -1,5 +1,5 @@
 <template>
-  <el-row type="flex" justify="space-between">
+  <el-row type="flex" justify="space-between" class="top-nav">
       <div class="logo ">
         <span>干货集中营</span>
       </div>
@@ -39,10 +39,13 @@ export default {
   vertical-align: middle;
   padding-left: 30px;
 }
-.navbar { 
-  border-radius: 0px !important;
-  padding-right: 20px;
+.top-nav {
   background: #f4f5f5;
+  .navbar { 
+    border-radius: 0px !important;
+    padding-right: 20px;
+    background: #f4f5f5;
+}
 }
 </style>
 
