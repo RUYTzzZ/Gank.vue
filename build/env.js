@@ -26,6 +26,8 @@ module.exports = {
             new HtmlWebpackPlugin({
                 filename : 'index.html',
                 template : `${config.context}/src/index.html`,
+                favicon : `${config.context}/src/assets/logo.png`,
+                title : 'Gank.io',
             }),
         ]);
         if (!isProd) {
