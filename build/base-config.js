@@ -28,7 +28,8 @@ let config = {
         modules,
         extensions: ['.js', '.vue'],
         alias: {
-            'vue$': 'vue/dist/vue.esm.js' // 用 webpack 1 时需用 'vue/dist/vue.common.js'
+            'vue$': 'vue/dist/vue.esm.js', // 用 webpack 1 时需用 'vue/dist/vue.common.js'
+            '@': path.resolve(__dirname, '../src'), // 其他页面import时，简化路径
           }
     },
     resolveLoader: {modules: ['node_modules']},

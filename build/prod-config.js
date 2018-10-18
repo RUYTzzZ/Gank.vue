@@ -31,6 +31,7 @@ const webpackConfig = merge(environment.wrap(baseConfig, 'production'), {
         new ManifestPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
+            template : `${baseConfig.context}/src/index.html`,
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,

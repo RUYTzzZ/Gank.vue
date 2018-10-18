@@ -1,8 +1,8 @@
 <template>
   <div class="app-wrapper" >
     <div class="main-content-container">
-      <navbar></navbar>
-      <app-main></app-main>
+      <navbar class="j-gank-nav"></navbar>
+      <app-main class="j-gank-content"></app-main>
     </div>
   </div>
 </template>
@@ -29,6 +29,15 @@ export default {
   .main-content-container {
     min-height: 100%;
     position: relative;
+    .j-gank-nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+    }
+    .j-gank-content {
+      margin-top:60px; 
+    }
   }
   .app-wrapper {
     position: relative;

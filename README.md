@@ -1,5 +1,5 @@
-# webpack搭建学习 基于webpack4
-
+# 借助干货集中营的api用vue写的一个查看各种干货和妹子的网站
+### vue + vue-router + webpack4 + elementUI
 - 配置文件在build目录下
 - 打包后的文件在build的webpack目录下
 
