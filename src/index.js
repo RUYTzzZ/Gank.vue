@@ -6,7 +6,7 @@ import Vue from 'vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from 'app';
-import {generateRouter, routeTables} from 'route';
+import {generateRouter, routeTables} from './router/index';
 
 const router = generateRouter();
 

@@ -11,7 +11,6 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(config => {
   // Do something before request is sent
-  
   return config
 }, error => {
   // Do something with request error

@@ -38,7 +38,11 @@ module.exports = {
         /** css rule */
         rules.push({
             test: /\.css$/,
-            use: ['style-loader', 'css-loader'],
+            use: [
+                {loader: MiniCssExtractPlugin.loader},
+                'css-loader',
+            ],
+
         });
 
         /** less rule */
@@ -62,7 +66,7 @@ module.exports = {
         /** extract layout for first loading */
         extractRule.test = lessRule.exclude = /layout\.less$/;
         rules.push(extractRule, lessRule);
-        config.plugins.push(new MiniCssExtractPlugin({filename: '[name].css'}));
+        config.plugins.push(new MiniCssExtractPlugin({filename: '[name].css', chunkFilename: '[id].css'}));
 
         /** babel rule for es6 modules */
         rules.push({
@@ -71,6 +75,7 @@ module.exports = {
                 loader: 'babel-loader',
                 options: {
                     presets: ['@babel/preset-env'],
+                    plugins: ['@babel/plugin-syntax-dynamic-import'],
                 },
             },
         });

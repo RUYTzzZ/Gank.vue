@@ -32,6 +32,18 @@ let config = {
             '@': path.resolve(__dirname, '../src'), // 其他页面import时，简化路径
           }
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+                'el-ui': {
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]element-ui/,
+                    name: 'el-ui',
+                },
+            }
+        }
+    },
     resolveLoader: {modules: ['node_modules']},
     module: {},
     plugins: [],
