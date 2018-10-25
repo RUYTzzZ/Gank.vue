@@ -2,7 +2,9 @@
     <el-card class="box-card">
         <div slot="header" class="clearfix">
             <span class="header-subject" v-text="subject"></span>
-            <el-button style="float: right; padding: 3px 0" type="text">还有哟...</el-button>
+            <div style="float: right; padding: 3px 0" v-if="anchor.length > 0">
+                <router-link :to="anchor" v-if="anchor.length > 0" class="more">more...</router-link>
+            </div>
         </div>
         <div v-for="(o, index) in data" :key="index" class="item">
             <a class="content-box">
@@ -31,6 +33,10 @@ export default {
           type: String,
           default: '鬼知道是啥哟',
       },
+      anchor: {
+          type: String,
+          default: '',
+      }
   },
   data() {
     return {
@@ -47,6 +53,11 @@ export default {
     .header-subject {
         font-weight: 700;
         font-size: 1.1em;
+    }
+    .more {
+        text-decoration: none;
+        font-size: 0.9em;
+        font-weight: 600;
     }
     .item {
     padding: 10px 2px;

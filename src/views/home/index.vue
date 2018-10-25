@@ -6,10 +6,10 @@
     <div class="j-gank-home-content">
       <el-row :gutter="20">
         <el-col :span="8">
-          <today-card :data="todayData.ios" subject="iOS"></today-card>
+          <today-card :data="todayData.ios" subject="iOS" anchor="/List/iOS/"></today-card>
         </el-col>
         <el-col :span="8" >
-           <today-card :data="todayData.android" subject="安卓"></today-card>
+           <today-card :data="todayData.android" subject="安卓" anchor="/List/Android/"></today-card>
         </el-col>
         <el-col :span="8">
           <div class="j-gank-meizi">
@@ -34,7 +34,7 @@
           <today-card :data="todayData.random" subject="瞎推荐"></today-card>
         </el-col>
         <el-col :span="8">
-            <today-card :data="todayData.video" subject="休息视频"></today-card>
+            <today-card :data="todayData.video" subject="休息视频" anchor="/List/休息视频/"></today-card>
         </el-col>
       </el-row>
     </div>
