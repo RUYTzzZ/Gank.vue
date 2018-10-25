@@ -69,6 +69,10 @@ export default {
         .el-card {
             img {
                 width: 100%;
+                transition: 300ms;
+            }
+            img:hover {
+                transform:scale(1.05,1.05);
             }
         }
         .el-card__body {
