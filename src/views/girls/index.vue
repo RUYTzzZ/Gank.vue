@@ -1,8 +1,10 @@
 <template>
         <div class="j-gank-girls-contanier">
-            <el-card class="j-gank-girls-item" v-for="(o, index) in girlsData" :key="index">
-                <img :src="o.url">
-            </el-card>
+            <div class="j-gank-girls-item" v-for="(o, index) in girlsData" :key="index">
+                <el-card class="j-gank-girls-item-card">
+                    <img :src="o.url">
+                </el-card>
+            </div>
         </div>
 </template>
 
@@ -16,7 +18,7 @@ export default {
             girlsData:[],
             isLoading: true,
             page:0,
-            size:20,
+            size:100,
         }
     },
     methods: {
@@ -53,21 +55,24 @@ export default {
     },
     mounted() {
         this.initData();
-        console.log('mounted');
     },
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .j-gank-girls-contanier {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: flex-start;
+    column-count: 4;
     .j-gank-girls-item {
-        max-width: 250px;
-        img {
-            width: 100%;
+        display: inline-block;
+        max-width: 300px;
+        margin-bottom: 20px;
+        .el-card {
+            img {
+                width: 100%;
+            }
+        }
+        .el-card__body {
+                padding: 10px;
         }
     }
 }

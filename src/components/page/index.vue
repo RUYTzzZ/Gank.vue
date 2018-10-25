@@ -61,7 +61,6 @@ export default {
            	//变量scrollHeight是滚动条的总高度
            	let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
             //滚动条到底部的条件
-            console.log("距顶部"+scrollTop+"可视区高度"+windowHeight+"滚动条总高度"+scrollHeight);
             if (scrollTop + windowHeight === scrollHeight) {
                 console.log("距顶部"+scrollTop+"可视区高度"+windowHeight+"滚动条总高度"+scrollHeight);
                 this.$emit('load-more')

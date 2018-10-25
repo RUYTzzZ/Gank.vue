@@ -1,7 +1,7 @@
 <template>
     <el-card class="box-card">
         <div slot="header" class="clearfix">
-            <span v-text="subject"></span>
+            <span class="header-subject" v-text="subject"></span>
             <el-button style="float: right; padding: 3px 0" type="text">还有哟...</el-button>
         </div>
         <div v-for="(o, index) in data" :key="index" class="item">
@@ -43,7 +43,12 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.item {
+.box-card {
+    .header-subject {
+        font-weight: 700;
+        font-size: 1.1em;
+    }
+    .item {
     padding: 10px 2px;
     .content-box {
         .meta-row {
@@ -64,5 +69,6 @@ export default {
             }
         }
     }
+}
 }
 </style>
