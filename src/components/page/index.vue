@@ -6,7 +6,11 @@
                     <div v-for="(o, index) in data" :key="index" class="j-gank-grid-item">
                         <a class="content-box">
                             <div class="meta-row">
-                                    <span class="meta-item">{{o.publishedAt}}</span>
+                                <ul class="meta-list">
+                                    <li class="item type" v-text="o.type"></li>
+                                    <li class="item username" v-text="o.who"></li>
+                                    <li class="item time" v-text="o.publishedAt"></li>
+                                </ul>  
                             </div>
                             <div class="info-row">
                                     <a :href="o.url" target="_blank" rel="" class="title">{{o.desc}}</a>
@@ -74,22 +78,45 @@ export default {
     min-height: 765px;
  .j-gank-grid-content-main {
     .j-gank-grid-item {
-        padding: 10px 2px;
-        border-bottom: 1px #dfdfdf solid;
-    }
-    .content-box {
+        border-bottom: 1px #e7e7e7 solid;
+        :hover {
+            background: #f0f0f0;
+        }
+        .content-box {
+        display: block;
+        cursor: pointer;
+        padding: 1rem 1rem;
         .meta-row {
             font-size: 11px;
             color: #b3bac1;
+            .meta-list {
+                display: flex;
+                justify-content: flex-start;
+                margin: 0;
+                padding: 0;
+                .item {
+                     list-style: none;
+                     padding-right: 1rem;
+                     :after {
+                        width: 11px;
+                        height: 11px;
+                        background: #2e3135;
+                    }
+                }
+            }
         }
         .info-row {
-            font-size: 1rem;
-            font-weight: 600;
-            line-height: 1;
+            margin: .5rem 0 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             a {
-            text-decoration: none;
-            cursor: pointer;
-            color: #2e3135;
+                text-decoration: none;
+                cursor: pointer;
+                font-size: 1.4rem;
+                font-weight: 600;
+                line-height: 1.2;
+                color: #2e3135;
             }
             a:link {
 
@@ -102,7 +129,8 @@ export default {
                 cursor: pointer;
             }
         }
-    }   
+    } 
+    }
  }
  .load-more {
      width: 50px;

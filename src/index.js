@@ -7,6 +7,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from 'app';
 import {generateRouter, routeTables} from './router/index';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime'
+dayjs.extend(relativeTime);
 
 const router = generateRouter();
 

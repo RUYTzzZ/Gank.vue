@@ -5,6 +5,7 @@
 <script>
 import page from '@/components/page/index'; 
 import Service from '@/util/service';
+import dayjs from 'dayjs';
 
 export default {
     name:'list',
@@ -24,13 +25,17 @@ export default {
     },
     methods: {
         initData() {
+            const filterItem = item => {
+                item.publishedAt = dayjs(item.publishedAt).toNow();
+                return item;
+            }
             this.resetState();
              Service.getTypeData({
                  type: this.type,
                  page: this.page,
                  size: this.size,
                  }).then(res => {
-                    this.pageData = res.results;
+                    this.pageData = res.results.map(filterItem);
                  }).catch(error => {
                      console.log(error);
                  }).finally(()=> {

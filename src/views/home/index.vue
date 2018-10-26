@@ -64,7 +64,7 @@ export default {
     }
   },
   methods: {
-    initHome() {
+     initHome() {
       Service.getTodayData().then(res => {
         this.todayData = {
           android: res.results.Android,
