@@ -56,21 +56,6 @@ export default {
             console.log('biu~~~~准备放大');
         },
     },
-    created() {
-        window.onscroll = () => {
-            //变量scrollTop是滚动条滚动时，距离顶部的距离
-           	let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-           	//变量windowHeight是可视区的高度
-           	let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
-           	//变量scrollHeight是滚动条的总高度
-           	let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-            //滚动条到底部的条件
-            if (scrollTop + windowHeight === scrollHeight) {
-                console.log("距顶部"+scrollTop+"可视区高度"+windowHeight+"滚动条总高度"+scrollHeight);
-                this.$emit('load-more')
-            }
-        }
-    }
 }
 </script>
 <style lang="less" scoped>

@@ -5,56 +5,43 @@
                     <img :src="o.url">
                 </el-card>
             </div>
+            <infinite-loading @infinite="infiniteHandler"></infinite-loading>
         </div>
 </template>
 
 <script>
 import Service from '@/util/service';
+import InfiniteLoading from 'vue-infinite-loading';
 
 export default {
     name:'girls',
+    components: {
+        InfiniteLoading,
+    },
     data() {
         return {
             girlsData:[],
-            isLoading: true,
             page:0,
-            size:100,
+            size:10,
         }
     },
     methods: {
-        initData() {
-            this.resetState();
-             Service.getMeiziData({
-                 page: this.page,
-                 size: this.size,
-                 }).then(res => {
-                    this.girlsData = res.results;
-                 }).catch(error => {
-                     console.log(error);
-                 }).finally(()=> {
-                     this.isLoading = false;
-                 });
-        },
-        resetState() {
-            this.isLoading = true;
-            this.girlsData = [];
-        },
-        loadMore() {
-            this.isLoading = true;
-            this.page++;
+        infiniteHandler($state) {
             Service.getMeiziData({
                  page: this.page,
                  size: this.size,
-                 }).then(res => {
-                    this.girlsData = Array.prototype.concat(this.girlsData,res.results);
-                 }).catch(error => {
-                 }).finally(()=> {
-                     this.isLoading = false;
-                 });
+                }).then(res => {
+                    if (res.results.length > 0) {
+                        this.girlsData.push(...res.results);
+                        $state.loaded();
+                        this.page++;
+                    } else {
+                        $state.complete();
+                    }
+                }).catch(error => {
+                    $state.complete();
+                });
         },
-    },
-    mounted() {
-        this.initData();
     },
 }
 </script>

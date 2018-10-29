@@ -1,16 +1,21 @@
 <template>
-        <page :data="pageData" :isLoading="isLoading" @load-more="loadMore"></page>
+    <div>
+        <page :data="pageData"></page>
+        <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+    </div>
 </template>
 
 <script>
 import page from '@/components/page/index'; 
 import Service from '@/util/service';
 import dayjs from 'dayjs';
+import InfiniteLoading from 'vue-infinite-loading';
 
 export default {
     name:'list',
     components: {
         page,
+        InfiniteLoading,
     },
     props: {
         type: String,
@@ -18,47 +23,47 @@ export default {
     data() {
         return {
             pageData:[],
-            isLoading: true,
             page:0,
-            size:20,
+            size:10,
         }
     },
     methods: {
         initData() {
-            const filterItem = item => {
-                item.publishedAt = dayjs(item.publishedAt).toNow();
-                return item;
-            }
             this.resetState();
              Service.getTypeData({
                  type: this.type,
                  page: this.page,
                  size: this.size,
                  }).then(res => {
-                    this.pageData = res.results.map(filterItem);
+                    this.pageData = res.results.map(this.filterItem);
                  }).catch(error => {
                      console.log(error);
-                 }).finally(()=> {
-                     this.isLoading = false;
                  });
         },
         resetState() {
-            this.isLoading = true;
             this.pageData = [];
+            this.page = 0;
         },
-        loadMore() {
-            this.isLoading = true;
+        filterItem(item) {
+                item.publishedAt = dayjs(item.publishedAt).toNow();
+                return item;
+        },
+        infiniteHandler($state) {
             this.page++;
             Service.getTypeData({
-                 type: this.type,
-                 page: this.page,
-                 size: this.size,
-                 }).then(res => {
-                    this.pageData = Array.prototype.concat(this.pageData,res.results);
-                 }).catch(error => {
-                 }).finally(()=> {
-                     this.isLoading = false;
-                 });
+                type: this.type,
+                page: this.page,
+                size: this.size,
+                }).then(res => {
+                    if (res.results.length > 0) {
+                        this.pageData.push(...res.results.map(this.filterItem));
+                        $state.loaded();
+                    } else {
+                        $state.complete();
+                    }
+                }).catch(error => {
+                    $state.complete();
+                });
         },
     },
     mounted() {
