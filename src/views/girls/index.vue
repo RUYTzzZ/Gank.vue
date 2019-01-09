@@ -27,7 +27,8 @@ export default {
     },
     methods: {
         infiniteHandler($state) {
-            Service.getMeiziData({
+            Service.getTypeData({
+                 type: '福利',
                  page: this.page,
                  size: this.size,
                 }).then(res => {

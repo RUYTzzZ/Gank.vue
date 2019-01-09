@@ -17,6 +17,10 @@ let config = {
      */
     entry: {
         main: ['webpack-hot-middleware/client', './src/index.js'],
+        vendor: [
+            'vue',
+            'element-ui',
+        ]
     },
     /**
      * 这些选项能设置模块如何被解析。webpack 提供合理的默认值，
@@ -34,13 +38,30 @@ let config = {
     },
     optimization: {
         splitChunks: {
-            chunks: 'all',
+            chunks: 'initial',
+            minSize:0,
+            minChunks:1,
+            maxAsyncRequests:1,
+            maxInitialRequests:1,
+            name: () => {},
             cacheGroups: {
-                'el-ui': {
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]element-ui/,
-                    name: 'el-ui',
+                priority: '0',
+                vendor: {
+                    chunks: 'initial',
+                    test: /vue|element-ui/,
+                    name:'vendor',
+                    minSize:0,
+                    minChunks:1,
+                    enforce:true,
+                    maxAsyncRequests:1,
+                    maxInitialRequests:1,
+                    reuseExistingChunk: true,
                 },
+                // 'el-ui': {
+                //     chunks: 'all',
+                //     test: /[\\/]node_modules[\\/]element-ui/,
+                //     name: 'el-ui',
+                // },
             }
         }
     },

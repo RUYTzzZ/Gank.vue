@@ -4,6 +4,8 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 
 module.exports = {
     wrap : (config, env = 'development') => {
@@ -29,6 +31,7 @@ module.exports = {
                 favicon : `${config.context}/src/assets/logo.png`,
                 title : 'Gank.io',
             }),
+            new BundleAnalyzerPlugin(),
         ]);
         if (!isProd) {
             config.plugins.push(...[
@@ -36,7 +39,7 @@ module.exports = {
                 new webpack.optimize.OccurrenceOrderPlugin(),
                 new webpack.HotModuleReplacementPlugin(),
                 // Use NoErrorsPlugin for webpack 1.x
-                new webpack.NoEmitOnErrorsPlugin()
+                new webpack.NoEmitOnErrorsPlugin(),
             ]);
         }
 
