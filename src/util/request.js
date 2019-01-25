@@ -1,22 +1,24 @@
-import axios from 'axios'
-import { Message } from 'element-ui'
-
+import axios from "axios";
+import { Message } from "element-ui";
 
 // create an axios instance
 const service = axios.create({
-  baseURL: 'https://gank.io/api', // api的base_url
+  baseURL: "https://gank.io/api", // api的base_url
   timeout: 5000 // request timeout
-})
+});
 
 // request interceptor
-service.interceptors.request.use(config => {
-  // Do something before request is sent
-  return config
-}, error => {
-  // Do something with request error
-  console.log(error) // for debug
-  Promise.reject(error)
-})
+service.interceptors.request.use(
+  config => {
+    // Do something before request is sent
+    return config;
+  },
+  error => {
+    // Do something with request error
+    console.log(error); // for debug
+    Promise.reject(error);
+  }
+);
 
 // respone interceptor
 service.interceptors.response.use(
@@ -28,26 +30,27 @@ service.interceptors.response.use(
    * 以下代码均为样例，请结合自生需求加以修改，若不需要，则可删除
    */
   response => {
-    const res = response.data
+    const res = response.data;
     if (res.error) {
       Message({
         message: res.message,
-        type: 'error',
+        type: "error",
         duration: 5 * 1000
       });
-      return Promise.reject('error')
+      return Promise.reject("error");
     } else {
-      return response.data
+      return response.data;
     }
   },
   error => {
-    console.log('err' + error) // for debug
+    console.log("err" + error); // for debug
     Message({
       message: error.message,
-      type: 'error',
+      type: "error",
       duration: 5 * 1000
-    })
-    return Promise.reject(error)
-  })
+    });
+    return Promise.reject(error);
+  }
+);
 
-export default service
+export default service;

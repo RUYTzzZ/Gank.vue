@@ -6,21 +6,13 @@
 
 <script>
 export default {
-    name:'About',
-    data() {
-      return {
-
-      }
-    },
-    methods: {
-
-    },
-    mounted() {
-      
-    },
-}
+  name: "About",
+  data() {
+    return {};
+  },
+  mounted() {},
+  methods: {}
+};
 </script>
 
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>
