@@ -1,20 +1,46 @@
 <template>
   <el-card class="box-card">
-    <div slot="header" class="clearfix">
-      <span class="header-subject" v-text="subject"></span>
-      <div v-if="anchor.length > 0" style="float: right; padding: 3px 0">
-        <router-link v-if="anchor.length > 0" :to="anchor" class="more"
-          >more...</router-link
+    <div
+      slot="header"
+      class="clearfix"
+    >
+      <span
+        class="header-subject"
+        v-text="subject"
+      />
+      <div
+        v-if="anchor.length > 0"
+        style="float: right; padding: 3px 0"
+      >
+        <router-link
+          v-if="anchor.length > 0"
+          :to="anchor"
+          class="more"
         >
+          more...
+        </router-link>
       </div>
     </div>
-    <div v-for="(o, index) in data" :key="index" class="item">
+    <div
+      v-for="(o, index) in data"
+      :key="index"
+      class="item"
+    >
       <a class="content-box">
         <div class="meta-row">
-          <span class="meta-item">{{ o.publishedAt }}</span>
+          <span class="meta-item">
+            {{ o.publishedAt }}
+          </span>
         </div>
         <div class="info-row">
-          <a :href="o.url" target="_blank" rel="" class="title">{{ o.desc }}</a>
+          <a
+            :href="o.url"
+            target="_blank"
+            rel=""
+            class="title"
+          >
+            {{ o.desc }}
+          </a>
         </div>
       </a>
     </div>
@@ -23,7 +49,7 @@
 
 <script>
 export default {
-  name: "TodayCard",
+  name: 'TodayCard',
   props: {
     data: {
       type: Array,
@@ -31,11 +57,11 @@ export default {
     },
     subject: {
       type: String,
-      default: "鬼知道是啥哟"
+      default: '鬼知道是啥哟'
     },
     anchor: {
       type: String,
-      default: ""
+      default: ''
     }
   },
   data() {

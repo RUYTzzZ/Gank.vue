@@ -1,7 +1,8 @@
-<!--
-  - Copyright (c) 2018 Mailtech.cn, Ltd. All Rights Reserved.
-  -->
-
 <template>
-  <router-view />
+  <div>
+    <router-view />
+  </div>
 </template>
+<script>
+export default {};
+</script>

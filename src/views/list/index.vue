@@ -1,18 +1,18 @@
 <template>
   <div>
-    <page :data="pageData"></page>
-    <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+    <page :data="pageData" />
+    <infinite-loading @infinite="infiniteHandler" />
   </div>
 </template>
 
 <script>
-import page from "@/components/page/index";
-import Service from "@/util/service";
-import dayjs from "dayjs";
-import InfiniteLoading from "vue-infinite-loading";
+import page from '@/components/page/index';
+import Service from '@/util/service';
+import dayjs from 'dayjs';
+import InfiniteLoading from 'vue-infinite-loading';
 
 export default {
-  name: "List",
+  name: 'List',
   components: {
     page,
     InfiniteLoading
@@ -34,7 +34,7 @@ export default {
   },
   mounted() {
     this.initData();
-    console.log("mounted");
+    console.log('mounted');
   },
   methods: {
     initData() {

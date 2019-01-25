@@ -4,7 +4,7 @@
       <img
         src="https://api.yingjoy.cn/pic/?t=random&w=1920"
         alt="Bing每日图片超高清"
-      />
+      >
     </div>
     <div class="j-gank-home-content">
       <el-row :gutter="20">
@@ -13,24 +13,34 @@
             :data="todayData.ios"
             subject="iOS"
             anchor="/List/iOS/"
-          ></today-card>
+          />
         </el-col>
         <el-col :span="8">
           <today-card
             :data="todayData.android"
             subject="安卓"
             anchor="/List/Android/"
-          ></today-card>
+          />
         </el-col>
         <el-col :span="8">
           <div class="j-gank-meizi">
             <el-card :body-style="{ padding: '0px' }">
-              <img :src="fuliPic.url" class="image" />
+              <img
+                :src="fuliPic.url"
+                class="image"
+              >
               <div style="padding: 14px;">
-                <span v-text="fuliPic.desc"></span>
+                <span v-text="fuliPic.desc" />
                 <div class="bottom clearfix">
-                  <time class="time">{{ fuliPic.publishedAt }}</time>
-                  <el-button type="text" class="button">保存哟</el-button>
+                  <time class="time">
+                    {{ fuliPic.publishedAt }}
+                  </time>
+                  <el-button
+                    type="text"
+                    class="button"
+                  >
+                    保存哟
+                  </el-button>
                 </div>
               </div>
             </el-card>
@@ -39,33 +49,39 @@
       </el-row>
       <el-row :gutter="20">
         <el-col :span="8">
-          <today-card :data="todayData.app" subject="app"></today-card>
+          <today-card
+            :data="todayData.app"
+            subject="app"
+          />
         </el-col>
         <el-col :span="8">
-          <today-card :data="todayData.random" subject="瞎推荐"></today-card>
+          <today-card
+            :data="todayData.random"
+            subject="瞎推荐"
+          />
         </el-col>
         <el-col :span="8">
           <today-card
             :data="todayData.video"
             subject="休息视频"
             anchor="/List/休息视频/"
-          ></today-card>
+          />
         </el-col>
       </el-row>
     </div>
     <footer class="j-gank-footer">
-      <div class="container"></div>
+      <div class="container" />
     </footer>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Service from "@/util/service.js";
-import TodayCard from "@/components/todayCard/index";
+import Service from '@/util/service.js';
+import TodayCard from '@/components/todayCard/index';
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     TodayCard
   },
