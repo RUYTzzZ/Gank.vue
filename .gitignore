@@ -3,5 +3,5 @@ package-lock.json
 .idea/
 # local configurations
 local.config.js
-
+dist/
 /build/webpack
