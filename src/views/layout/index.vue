@@ -1,17 +1,17 @@
 <template>
   <div class="app-wrapper">
     <div class="main-content-container">
-      <navbar class="j-gank-nav"></navbar>
-      <app-main class="j-gank-content"></app-main>
+      <navbar class="j-gank-nav" />
+      <app-main class="j-gank-content" />
     </div>
   </div>
 </template>
 
 <script>
-import { AppMain, Navbar } from "./components/index.js";
+import { AppMain, Navbar } from './components/index.js';
 
 export default {
-  name: "Layout",
+  name: 'Layout',
   components: {
     Navbar,
     AppMain

@@ -3,42 +3,69 @@
     <el-row :gutter="30">
       <el-col :span="18">
         <div class="j-gank-grid-content-main">
-          <div v-for="(o, index) in data" :key="index" class="j-gank-grid-item">
+          <div
+            v-for="(o, index) in data"
+            :key="index"
+            class="j-gank-grid-item"
+          >
             <a class="content-box">
               <div class="meta-row">
                 <ul class="meta-list">
-                  <li class="item type" v-text="o.type"></li>
-                  <li class="item username" v-text="o.who"></li>
-                  <li class="item time" v-text="o.publishedAt"></li>
+                  <li
+                    class="item type"
+                    v-text="o.type"
+                  />
+                  <li
+                    class="item username"
+                    v-text="o.who"
+                  />
+                  <li
+                    class="item time"
+                    v-text="o.publishedAt"
+                  />
                 </ul>
               </div>
               <div class="info-row">
-                <a :href="o.url" target="_blank" rel="" class="title">{{
-                  o.desc
-                }}</a>
+                <a
+                  :href="o.url"
+                  target="_blank"
+                  rel=""
+                  class="title"
+                >
+                  {{
+                    o.desc
+                  }}
+                </a>
               </div>
-              <div v-if="o.images && o.images.length > 0" class="info-pic">
+              <div
+                v-if="o.images && o.images.length > 0"
+                class="info-pic"
+              >
                 <img
                   v-for="(p, index) in o.images"
                   :key="index"
                   :src="p"
                   @click="zoom()"
-                />
+                >
               </div>
             </a>
           </div>
         </div>
-        <div v-if="isLoading" v-loading="true" class="load-more"></div>
+        <div
+          v-if="isLoading"
+          v-loading="true"
+          class="load-more"
+        />
       </el-col>
       <el-col :span="4">
-        <div class="j-gank-grid-content-ad"></div>
+        <div class="j-gank-grid-content-ad" />
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
 export default {
-  name: "Page",
+  name: 'Page',
   props: {
     data: {
       type: Array,
@@ -56,7 +83,7 @@ export default {
   methods: {
     zoom() {
       //todo: 放大图片
-      console.log("biu~~~~准备放大");
+      console.log('biu~~~~准备放大');
     }
   }
 };

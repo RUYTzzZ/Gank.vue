@@ -8,24 +8,22 @@
 - 配置文件在build目录下
 - 打包后的文件在build的webpack目录下
 
-### 安装
-1. fork 或者clone代码
+## Project setup
 ```
-git clone https://github.com/GuMengYu/webpack4Demo.git
+yarn install
 ```
-2. 切换到 dev分支
+
+### Compiles and hot-reloads for development
 ```
-git checkout dev
+yarn run serve
 ```
-3. 安装依赖
+
+### Compiles and minifies for production
 ```
-npm i --no-save
+yarn run build
 ```
-4. 开发环境运行
+
+### Lints and fixes files
 ```
-npm run dev
-```
-5. 打包
-```
-npm run prod
+yarn run lint
 ```

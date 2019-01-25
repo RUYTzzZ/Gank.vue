@@ -1,20 +1,24 @@
 <template>
   <div class="j-gank-girls-contanier">
-    <div v-for="(o, index) in girlsData" :key="index" class="j-gank-girls-item">
+    <div
+      v-for="(o, index) in girlsData"
+      :key="index"
+      class="j-gank-girls-item"
+    >
       <el-card class="j-gank-girls-item-card">
-        <img :src="o.url" />
+        <img :src="o.url">
       </el-card>
     </div>
-    <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+    <infinite-loading @infinite="infiniteHandler" />
   </div>
 </template>
 
 <script>
-import Service from "@/util/service";
-import InfiniteLoading from "vue-infinite-loading";
+import Service from '@/util/service';
+import InfiniteLoading from 'vue-infinite-loading';
 
 export default {
-  name: "Girls",
+  name: 'Girls',
   components: {
     InfiniteLoading
   },
@@ -28,7 +32,7 @@ export default {
   methods: {
     infiniteHandler($state) {
       Service.getTypeData({
-        type: "福利",
+        type: '福利',
         page: this.page,
         size: this.size
       })
