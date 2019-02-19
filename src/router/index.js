@@ -15,8 +15,9 @@ export default new Router({
       children: [
         { path: '/Home/', component: lazyLoading('home') },
         { path: '/List/:type/', component: lazyLoading('list'), props: true },
-        { path: '/About/', component: lazyLoading('about') },
-        { path: '/Girls/', component: lazyLoading('girls') }
+        { path: '/About/', component: lazyLoading('errorPages/404') },
+        { path: '/Girls/', component: lazyLoading('girls') },
+        { path: '/Leisure/', component: lazyLoading('LeisureRead'), props: true }
       ]
     },
     {

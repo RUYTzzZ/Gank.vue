@@ -30,8 +30,14 @@
       <el-menu-item index="/List/前端/">
         前端
       </el-menu-item>
+      <el-menu-item index="/List/瞎推荐/">
+        瞎推荐
+      </el-menu-item>
       <el-menu-item index="/Girls/">
         图图
+      </el-menu-item>
+      <el-menu-item index="/Leisure/">
+        闲读
       </el-menu-item>
       <el-menu-item index="/About/">
         关于宝宝
@@ -52,7 +58,7 @@ export default {
 .logo {
   font-size: 20px;
   text-align: center;
-  width: 100px;
+  width: 130px;
   color: #409eff;
   font-weight: 700;
   line-height: 58px;

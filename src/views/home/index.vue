@@ -2,8 +2,8 @@
   <div class="gank-home-page-container">
     <div class="j-gank-home-pic">
       <img
-        src="https://api.yingjoy.cn/pic/?t=random&w=1920"
-        alt="Bing每日图片超高清"
+        src="https://api.xygeng.cn/bing/1366.php"
+        title="Bing每日图片超高清"
       >
     </div>
     <div class="j-gank-home-content">
@@ -38,6 +38,7 @@
                   <el-button
                     type="text"
                     class="button"
+                    @click="save"
                   >
                     保存哟
                   </el-button>
@@ -77,8 +78,9 @@
 
 <script>
 // @ is an alias to /src
-import Service from '@/util/service.js';
+import Service from '@/util/service';
 import TodayCard from '@/components/todayCard/index';
+import _ from 'lodash';
 
 export default {
   name: 'Home',
@@ -99,18 +101,21 @@ export default {
     initHome() {
       Service.getTodayData().then(res => {
         this.todayData = {
-          android: res.results.Android,
-          ios: res.results.iOS,
-          random: res.results.瞎推荐,
-          app: res.results.App,
-          video: res.results.休息视频
+          android: res.results['Android'],
+          ios: res.results['iOS'],
+          random: res.results['瞎推荐'],
+          app: res.results['App'],
+          video: res.results['休息视频']
         };
+        _.each(this.todayData, item => item.length = 5);
         this.fuliPic =
-          res.results.福利 !== void 0 && res.results.福利.length > 0
-            ? res.results.福利[0]
+          res.results['福利'] !== void 0 && res.results['福利'].length > 0
+            ? res.results['福利'][0]
             : {};
       });
-    }
+    },
+    save() {
+    },
   }
 };
 </script>

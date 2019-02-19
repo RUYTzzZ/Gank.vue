@@ -72,6 +72,18 @@ export default {
     .el-card__body {
       padding: 10px;
     }
+    .j-gank-girls-item-card {
+      :hover {
+        transform: translateY(-6px);
+        -webkit-transform: translateY(-6px);
+        -moz-transform: translateY(-6px);
+        box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+        -webkit-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+        -moz-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+        transition: all 0.3s ease;
+      }
+    }
+
   }
 }
 </style>
