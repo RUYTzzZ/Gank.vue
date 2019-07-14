@@ -42,8 +42,8 @@
                 class="info-pic"
               >
                 <img
-                  v-for="(p, index) in o.images"
-                  :key="index"
+                  v-for="(p, i) in o.images"
+                  :key="i"
                   :src="p"
                   @click="zoom()"
                 >
@@ -131,7 +131,7 @@ export default {
             font-size: 1.4rem;
             font-weight: 600;
             line-height: 1.2;
-            color: #2e3135;
+            color: #3273dc;
           }
           a:link {
           }

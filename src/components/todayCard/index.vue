@@ -91,7 +91,6 @@ export default {
       .info-row {
         font-size: 1rem;
         font-weight: 600;
-        line-height: 1;
         a {
           text-decoration: none;
           cursor: pointer;

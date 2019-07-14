@@ -18,7 +18,10 @@ export default {
     InfiniteLoading
   },
   props: {
-    type: String
+    type: {
+      type: String,
+      default: '',
+    }
   },
   data() {
     return {
@@ -34,7 +37,6 @@ export default {
   },
   mounted() {
     this.initData();
-    console.log('mounted');
   },
   methods: {
     initData() {
