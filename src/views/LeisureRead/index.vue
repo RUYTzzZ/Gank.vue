@@ -3,10 +3,10 @@
     <nav class="nav-view">
       <ul class="nav-list">
         <li
-            class="nav-item"
-            v-bind:class="{ active: isActive }"
-            v-for="item in categories"
-            :key="item._id"
+          class="nav-item"
+          v-for="item in categories"
+          :key="item._id"
+          :class="{ active: isActive }"
         >
           <router-link to="/">
             {{ item.name }}
@@ -14,7 +14,7 @@
         </li>
       </ul>
     </nav>
-    <sub-page :type="activeItem"></sub-page>
+    <sub-page class="sub_page" :type="activeItem" />
   </div>
 </template>
 
@@ -99,5 +99,8 @@ export default {
         color: @em_color;
       }
     }
+  }
+  .sub_page {
+    margin-top: 120px;
   }
 </style>

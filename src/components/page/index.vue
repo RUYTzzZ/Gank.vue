@@ -42,8 +42,8 @@
                 class="info-pic"
               >
                 <img
-                  v-for="(p, index) in o.images"
-                  :key="index"
+                  v-for="(p, i) in o.images"
+                  :key="i"
                   :src="p"
                   @click="zoom()"
                 >

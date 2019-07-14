@@ -8,7 +8,7 @@ export default {
     request.get(`/data/${params.type}/${params.size}/${params.page}`),
 
   //获取bing每日一图
-  getBingPic: params => request.get('https://bing.ioliu.cn/v1'),
+  getBingPic: params => request.get('https://picsum.photos/v2/list?page=1&limit=5'),
 
   // 获取闲读主分类
   getXianduCategories: () => request.get('/xiandu/categories '),

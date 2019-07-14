@@ -1,11 +1,13 @@
 <template>
   <div class="subpage-container">
     <div class="sites-list">
-      <div v-for="site in siteData" :key="site._id" class="site-item">
+      <div v-for="site in siteData"
+           :key="site._id"
+           class="site-item"
+      >
         <div class="logo">
-          <img
-            :src="site.icon"
-            :title="site.title"
+          <img :src="site.icon"
+          :title="site.title"
           >
         </div>
         <span
@@ -57,6 +59,7 @@ export default {
     justify-content: start;
     align-items: center;
     padding: 10px;
+  
     border-radius: 6px;
     background: #fff;
     border: 1px solid #e4ecf3;
@@ -78,13 +81,13 @@ export default {
     }
   }
   :hover {
-    transform: translateY(-6px);
-    -webkit-transform: translateY(-6px);
-    -moz-transform: translateY(-6px);
-    box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
-    -webkit-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
-    -moz-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
-    transition: all 0.3s ease;
+    // transform: translateY(-6px);
+    // -webkit-transform: translateY(-6px);
+    // -moz-transform: translateY(-6px);
+    // box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+    // -webkit-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+    // -moz-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+    // transition: all 0.3s ease;
   }
 }
 </style>
